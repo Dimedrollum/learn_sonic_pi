@@ -3,11 +3,14 @@ $direct = 0.3
 
 
 live_loop :bou do
-  play :G5
+  use_synth :saw
+  play :G4
   sleep $temp
-  play :Fb5
+  use_synth :blade
+  play :Fb4
   sleep $temp
-  play :C6
+  use_synth :pulse
+  play :C3
   sleep $temp
 end
 
@@ -22,11 +25,15 @@ live_loop :china do
   sleep $temp * rrand_i(2,3)
 end
 
-live_loop :amb do
-  sample :ambi_drone
+live_loop :ambL do
+  sample :ambi_drone, pan: -1
   sync :bass
 end
 
+live_loop :ambR do
+  sample :ambi_drone, rate: -1, pan: 1
+  sync :bass
+end
 
 live_loop :hat do
   sample :drum_cymbal_soft, pan: -0.7
@@ -34,15 +41,12 @@ live_loop :hat do
 end
 
 live_loop :dir do
-  sample :drum_snare_soft
+  sample :drum_snare_soft, amp: 10
   sleep $direct * 4
 end
 
 live_loop :roll do
-  loop do
-    sample :drum_bass_hard
-    sleep $direct/2
-  end
+  sample :drum_bass_hard, amp: 1.3
   sleep $direct/2
 end
 
