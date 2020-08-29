@@ -18,7 +18,7 @@ end
 
 live_loop :china do
   sleep $temp
-  sample :guit_e_slide, rate: 0.66, slice: 1
+  sample :guit_e_slide, rate: 0.66, slice: 1, pan: 0.5
   sleep $temp * rrand_i(2,3)
 end
 
@@ -29,7 +29,7 @@ end
 
 
 live_loop :hat do
-  sample :drum_cymbal_soft
+  sample :drum_cymbal_soft, pan: -0.7
   sleep $direct * rrand_i(1,4) /2
 end
 
